@@ -1,0 +1,71 @@
+/* Filter chips (Home + Browse dono mein use hote hain) */
+.filters { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.filter-btn {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--teal); }
+.filter-btn.active { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 600; }
+.filter-btn[data-category="seminar"].active { background: var(--amber); border-color: var(--amber); color: #141414; }
+.filter-btn[data-category="university"].active { background: var(--purple); border-color: var(--purple); }
+
+/* Grid */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.event-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: block;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.event-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12); }
+
+.card-banner {
+  height: 170px;
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.cat-concert { background: linear-gradient(135deg, #0f766e, #134e4a); }
+.cat-seminar { background: linear-gradient(135deg, #f59e0b, #b45309); }
+.cat-university { background: linear-gradient(135deg, #7c3aed, #4c1d95); }
+
+.card-body { padding: 16px; }
+.card-body h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.card-meta { color: var(--muted); font-size: 0.88rem; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+.price { color: var(--teal); font-weight: 700; }
+.seats { color: #999; font-size: 0.8rem; }
+
+.empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px 0; }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+@media (max-width: 600px) {
+  .events-grid { grid-template-columns: 1fr; gap: 16px; }
+  .card-banner { height: 140px; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+  .filter-btn { white-space: nowrap; }
+}

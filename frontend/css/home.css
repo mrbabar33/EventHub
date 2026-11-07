@@ -1,0 +1,20 @@
+.hero { background: var(--dark); color: #fff; padding: 56px 0 48px; }
+.hero h1 { font-size: 2.6rem; margin-bottom: 20px; line-height: 1.15; }
+
+.search-box { display: flex; gap: 12px; max-width: 700px; }
+.search-box input { flex: 1; border: none; padding: 14px 18px; }
+
+.section-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.section-head h2 { font-size: 1.5rem; }
+
+@media (max-width: 768px) {
+  .hero { padding: 40px 0 32px; }
+  .hero h1 { font-size: 2rem; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.6rem; }
+  .search-box { flex-direction: column; }
+  .search-box .btn { width: 100%; }
+  .section-head { flex-direction: column; align-items: flex-start; }
+  .section-head .filters { width: 100%; }
+}
